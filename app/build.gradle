@@ -29,8 +29,6 @@ android {
 
 dependencies {
 
-     def room_version = "2.2.0"
-
     // Basic dependencies
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
@@ -43,10 +41,21 @@ dependencies {
     kapt Dependencies.Androidx.RoomCompiler
 
     // optional - RxJava support for Room
-    implementation "androidx.room:room-rxjava2:$room_version"
+    implementation Dependencies.Androidx.RoomRx
+
+    // RecyclerView
+    implementation Dependencies.Androidx.xRecyclerView
 
     // PokeKotlin
-    implementation 'me.sargunvohra.lib:pokekotlin:2.3.0'
+    implementation Dependencies.Others.PokeKotlin
+
+    // Dagger
+    implementation Dependencies.DependencyInjection.Dagger
+    kapt Dependencies.DependencyInjection.DaggerCompiler
+
+    api Dependencies.DependencyInjection.DaggerAndroid
+    api Dependencies.DependencyInjection.DaggerAndroidSupport
+    kapt Dependencies.DependencyInjection.DaggerAndroidAnnotationProcessor
 
     // Testing
     testImplementation 'junit:junit:4.12'
