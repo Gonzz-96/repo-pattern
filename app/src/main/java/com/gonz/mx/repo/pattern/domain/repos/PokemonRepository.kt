@@ -5,12 +5,12 @@ import me.sargunvohra.lib.pokekotlin.client.PokeApiClient
 import me.sargunvohra.lib.pokekotlin.model.Pokemon
 
 
-class PokemonRepository(val pokeClient: PokeApiClient
-
+class PokemonRepository(
+    private val pokeClient: PokeApiClient
 ) : PokemonGateway {
+
     override fun getSinglePokemon(id: Int): Pokemon =
         pokeClient.getPokemon(id)
-
 
     override fun getRangePokemon(init: Int, end: Int): List<Pokemon> {
         return emptyList()
