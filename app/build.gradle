@@ -39,6 +39,10 @@ dependencies {
     // Material Design
     implementation Dependencies.Others.Material
 
+    // RxJava
+    implementation Dependencies.Others.RxJava
+    implementation Dependencies.Others.RxAndroid
+
     // Room + RxJava
     implementation Dependencies.Androidx.RoomRuntime
     kapt Dependencies.Androidx.RoomCompiler

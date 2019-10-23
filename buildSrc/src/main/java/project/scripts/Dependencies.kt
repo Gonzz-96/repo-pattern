@@ -5,6 +5,8 @@ import project.scripts.Versions.materialVersion
 import project.scripts.Versions.pokeKotlinVersion
 import project.scripts.Versions.recyclerviewVersion
 import project.scripts.Versions.roomVersion
+import project.scripts.Versions.rxAndroidVersion
+import project.scripts.Versions.rxJavaVersion
 
 class Dependencies {
 
@@ -18,6 +20,8 @@ class Dependencies {
     object Others {
         const val PokeKotlin = "me.sargunvohra.lib:pokekotlin:$pokeKotlinVersion"
         const val Material = "com.google.android.material:material:$materialVersion"
+        const val RxJava = "io.reactivex.rxjava2:rxjava:$rxJavaVersion"
+        const val RxAndroid = "io.reactivex.rxjava2:rxandroid:$rxAndroidVersion"
     }
 
     object DependencyInjection {
@@ -45,4 +49,8 @@ object Versions {
 
     // Material version
     const val materialVersion = "1.1.0-alpha06"
+
+    // RxJava
+    const val rxJavaVersion = "2.2.13"
+    const val rxAndroidVersion = "2.1.1"
 }
