@@ -3,8 +3,9 @@ package com.gonz.mx.repo.pattern.domain.usecases
 import com.gonz.mx.repo.pattern.domain.gateways.PokemonGateway
 import me.sargunvohra.lib.pokekotlin.model.Pokemon
 
-class GetSinglePokemonUseCase(val gateway: PokemonGateway) {
+class GetRangePokemonUseCase(val gateway: PokemonGateway) {
 
-    operator fun invoke(id: Int) : Pokemon = gateway.getSinglePokemon(id)
+    operator fun invoke(init: Int, end: Int) : List<Pokemon> =
+        gateway.getRangePokemon(init, end)
 
 }
