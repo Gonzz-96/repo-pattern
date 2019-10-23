@@ -42,16 +42,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, HasAndroidInject
      *
      */
     private fun getSinglePokemon() {
-        val pokemonId = singlePokemonInput.text.toString()
-
-        if(pokemonId.isEmpty()) {
-            showSnackBar("Empty input!")
-            return
-        }
-
-        val i = Intent(this, SinglePokemonActivity::class.java)
-        i.putExtra(Utils.SINGLE_POKEMON_INTENT_PARAMETER, pokemonId.toIntOrNull() ?: 1)
-        startActivity(i)
+        startActivity(Intent(this, SinglePokemonActivity::class.java))
     }
 
     private fun getRangePokemon() {

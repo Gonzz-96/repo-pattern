@@ -24,9 +24,10 @@ class SinglePokemonActivity : AppCompatActivity(), SinglePokemonContract.View, H
         AndroidInjection.inject(this)
         setContentView(R.layout.activity_single_pokemon)
 
-        pokemonId = intent.getIntExtra(Utils.SINGLE_POKEMON_INTENT_PARAMETER, 1)
-
-        presenter.getPokemon(pokemonId)
+        pokemonName.setOnClickListener {
+            pokemonId = singlePokemonInput.text.toString().toIntOrNull() ?: 1
+            presenter.getPokemon(pokemonId)
+        }
     }
 
     override fun showPokemon(pokemon: Pokemon) {

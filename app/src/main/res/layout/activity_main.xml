@@ -21,16 +21,6 @@
             android:layout_gravity="center"
             android:layout_margin="10dp"
             android:layout_weight="1"/>
-
-        <EditText
-            android:id="@+id/singlePokemonInput"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:layout_weight="2"
-            android:hint="Number"
-            android:inputType="numberDecimal"
-            android:maxLength="3" />
     </LinearLayout>
 
 
