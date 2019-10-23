@@ -8,7 +8,6 @@ class SinglePokemonPresenter(
 ) : SinglePokemonContract.Presenter {
 
     override fun getPokemon(id: Int) {
-        val p = getSinglePokemon(id)
-        view.showPokemon(p)
+        getSinglePokemon(id, view::showPokemon)
     }
 }

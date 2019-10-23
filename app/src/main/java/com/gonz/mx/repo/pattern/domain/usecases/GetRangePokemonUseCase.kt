@@ -5,7 +5,8 @@ import me.sargunvohra.lib.pokekotlin.model.Pokemon
 
 class GetRangePokemonUseCase(val gateway: PokemonGateway) {
 
-    operator fun invoke(init: Int, end: Int) : List<Pokemon> =
+    operator fun invoke(init: Int, end: Int) {
         gateway.getRangePokemon(init, end)
+    }
 
 }

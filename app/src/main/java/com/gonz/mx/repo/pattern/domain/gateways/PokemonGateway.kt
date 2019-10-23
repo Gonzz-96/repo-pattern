@@ -1,10 +1,10 @@
 package com.gonz.mx.repo.pattern.domain.gateways
 
-import me.sargunvohra.lib.pokekotlin.model.Pokemon
+import com.gonz.mx.repo.pattern.domain.entities.Pokemon
 
 interface PokemonGateway {
-    fun getSinglePokemon(id: Int) : Pokemon
-    fun getRangePokemon(init: Int, end: Int): List<Pokemon>
+    fun getSinglePokemon(id: Int, l: (Pokemon) -> Unit)
+    fun getRangePokemon(init: Int, end: Int)
     fun clearDatabase()
     fun clearCache()
 

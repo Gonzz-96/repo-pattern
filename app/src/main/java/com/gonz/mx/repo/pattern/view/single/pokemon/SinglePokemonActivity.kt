@@ -4,13 +4,13 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import com.gonz.mx.repo.pattern.R
+import com.gonz.mx.repo.pattern.domain.entities.Pokemon
 import com.gonz.mx.repo.pattern.utils.Utils
 import dagger.android.AndroidInjection
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.HasAndroidInjector
 import kotlinx.android.synthetic.main.activity_single_pokemon.*
-import me.sargunvohra.lib.pokekotlin.model.Pokemon
 import javax.inject.Inject
 
 class SinglePokemonActivity : AppCompatActivity(), SinglePokemonContract.View, HasAndroidInjector {

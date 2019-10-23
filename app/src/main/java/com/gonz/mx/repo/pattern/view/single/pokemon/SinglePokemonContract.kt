@@ -1,6 +1,6 @@
 package com.gonz.mx.repo.pattern.view.single.pokemon
 
-import me.sargunvohra.lib.pokekotlin.model.Pokemon
+import com.gonz.mx.repo.pattern.domain.entities.Pokemon
 
 interface SinglePokemonContract {
     interface View {

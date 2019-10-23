@@ -1,10 +1,12 @@
 package com.gonz.mx.repo.pattern.domain.usecases
 
+import com.gonz.mx.repo.pattern.domain.entities.Pokemon
 import com.gonz.mx.repo.pattern.domain.gateways.PokemonGateway
-import me.sargunvohra.lib.pokekotlin.model.Pokemon
 
-class GetSinglePokemonUseCase(val gateway: PokemonGateway) {
+class GetSinglePokemonUseCase(private val gateway: PokemonGateway) {
 
-    operator fun invoke(id: Int) : Pokemon = gateway.getSinglePokemon(id)
+    operator fun invoke(id: Int, l: (Pokemon) -> Unit) {
+        gateway.getSinglePokemon(id, l)
+    }
 
 }

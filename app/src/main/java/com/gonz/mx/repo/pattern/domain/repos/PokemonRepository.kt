@@ -1,22 +1,27 @@
 package com.gonz.mx.repo.pattern.domain.repos
 
 import android.util.Log
+import com.gonz.mx.repo.pattern.domain.entities.Pokemon
 import com.gonz.mx.repo.pattern.domain.gateways.PokemonGateway
-import me.sargunvohra.lib.pokekotlin.client.PokeApi
-import me.sargunvohra.lib.pokekotlin.model.Pokemon
+import com.gonz.mx.repo.pattern.network.PokeApi
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.schedulers.Schedulers
 
 
 class PokemonRepository(
     private val pokeClient: PokeApi
 ) : PokemonGateway {
 
-    override fun getSinglePokemon(id: Int): Pokemon {
+    override fun getSinglePokemon(id: Int, l: (Pokemon) -> Unit) {
         Log.v("POKEMON", "Pokemon retrieved")
-        return pokeClient.getPokemon(id)
+        val x = pokeClient.getPokemon(id)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe(l, {})
     }
 
-    override fun getRangePokemon(init: Int, end: Int): List<Pokemon> {
-        return emptyList()
+    override fun getRangePokemon(init: Int, end: Int) {
+
     }
 
     override fun clearDatabase() {
