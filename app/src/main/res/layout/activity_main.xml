@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/mainLayout"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:orientation="vertical"
-    android:layout_gravity="center"
-    tools:context=".MainActivity">
+    android:gravity="center"
+    tools:context=".view.main.MainActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -29,7 +30,7 @@
             android:layout_weight="2"
             android:hint="Number"
             android:inputType="numberDecimal"
-            android:maxLength="10" />
+            android:maxLength="3" />
     </LinearLayout>
 
 
@@ -46,20 +47,20 @@
             android:layout_margin="10dp" />
 
         <EditText
-            android:id="@+id/rangePokemonFirstInput"
+            android:id="@+id/rangePokemonInputInit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="3"
             android:hint="Init"
             android:inputType="numberDecimal"
-            android:maxLength="10"
+            android:maxLength="3"
             android:layout_margin="10dp" />
 
         <EditText
-            android:id="@+id/rangePokemonSecondInput"
+            android:id="@+id/rangePokemonInputEnd"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:maxLength="10"
+            android:maxLength="3"
             android:hint="End"
             android:inputType="numberDecimal"
             android:layout_weight="3"

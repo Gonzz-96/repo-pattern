@@ -1,6 +1,7 @@
 package project.scripts
 
 import project.scripts.Versions.daggerVersion
+import project.scripts.Versions.materialVersion
 import project.scripts.Versions.pokeKotlinVersion
 import project.scripts.Versions.recyclerviewVersion
 import project.scripts.Versions.roomVersion
@@ -16,6 +17,7 @@ class Dependencies {
 
     object Others {
         const val PokeKotlin = "me.sargunvohra.lib:pokekotlin:$pokeKotlinVersion"
+        const val Material = "com.google.android.material:material:$materialVersion"
     }
 
     object DependencyInjection {
@@ -38,6 +40,9 @@ object Versions {
     // Recyclerview
     const val recyclerviewVersion = "1.0.0"
 
-    // Daggerversion
+    // Dagger version
     const val daggerVersion = "2.24"
+
+    // Material version
+    const val materialVersion = "1.1.0-alpha06"
 }
