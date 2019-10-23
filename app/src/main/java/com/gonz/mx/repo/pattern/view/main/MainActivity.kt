@@ -8,9 +8,15 @@ import com.gonz.mx.repo.pattern.R
 import com.gonz.mx.repo.pattern.utils.Utils
 import com.gonz.mx.repo.pattern.view.single.pokemon.SinglePokemonActivity
 import com.google.android.material.snackbar.Snackbar
+import dagger.android.AndroidInjector
+import dagger.android.DispatchingAndroidInjector
+import dagger.android.HasAndroidInjector
 import kotlinx.android.synthetic.main.activity_main.*
+import javax.inject.Inject
 
-class MainActivity : AppCompatActivity(), View.OnClickListener {
+class MainActivity : AppCompatActivity(), View.OnClickListener, HasAndroidInjector {
+
+    @Inject lateinit var dispatch: DispatchingAndroidInjector<Any>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -59,4 +65,6 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     private fun showSnackBar(message: String) {
         Snackbar.make(mainLayout, message, Snackbar.LENGTH_SHORT).show()
     }
+
+    override fun androidInjector(): AndroidInjector<Any> = dispatch
 }

@@ -64,6 +64,10 @@ dependencies {
     api Dependencies.DependencyInjection.DaggerAndroidSupport
     kapt Dependencies.DependencyInjection.DaggerAndroidAnnotationProcessor
 
+    // Retrofit + RxJava
+    implementation Dependencies.Networking.Retrofit
+    implementation Dependencies.Networking.RxRetroAdapter
+
     // Testing
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.2.0'

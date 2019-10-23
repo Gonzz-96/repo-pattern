@@ -8,6 +8,7 @@ import com.gonz.mx.repo.pattern.view.single.pokemon.SinglePokemonContract
 import com.gonz.mx.repo.pattern.view.single.pokemon.SinglePokemonPresenter
 import dagger.Module
 import dagger.Provides
+import me.sargunvohra.lib.pokekotlin.client.PokeApi
 import me.sargunvohra.lib.pokekotlin.client.PokeApiClient
 
 @Module
@@ -26,5 +27,5 @@ class SinglePokemonModule {
     fun getUseCase(gw: PokemonGateway) : GetSinglePokemonUseCase = GetSinglePokemonUseCase(gw)
 
     @Provides
-    fun getGateway(client: PokeApiClient) : PokemonGateway = PokemonRepository(client)
+    fun getGateway(client: PokeApi) : PokemonGateway = PokemonRepository(client)
 }

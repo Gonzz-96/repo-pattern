@@ -4,9 +4,11 @@ import project.scripts.Versions.daggerVersion
 import project.scripts.Versions.materialVersion
 import project.scripts.Versions.pokeKotlinVersion
 import project.scripts.Versions.recyclerviewVersion
+import project.scripts.Versions.retrofitVersion
 import project.scripts.Versions.roomVersion
 import project.scripts.Versions.rxAndroidVersion
 import project.scripts.Versions.rxJavaVersion
+import project.scripts.Versions.rxRetroVersion
 
 class Dependencies {
 
@@ -32,6 +34,11 @@ class Dependencies {
         const val DaggerAndroidSupport = "com.google.dagger:dagger-android-support:$daggerVersion"
         const val DaggerAndroidAnnotationProcessor = "com.google.dagger:dagger-android-processor:$daggerVersion"
     }
+
+    object Networking {
+        const val Retrofit = "com.squareup.retrofit2:retrofit:$retrofitVersion"
+        const val RxRetroAdapter = "com.squareup.retrofit2:adapter-rxjava2:$rxRetroVersion"
+    }
 }
 
 object Versions {
@@ -53,4 +60,8 @@ object Versions {
     // RxJava
     const val rxJavaVersion = "2.2.13"
     const val rxAndroidVersion = "2.1.1"
+
+    // Retrofit
+    const val retrofitVersion = "2.6.2"
+    const val rxRetroVersion = "2.6.2"
 }
