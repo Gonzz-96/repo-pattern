@@ -1,6 +1,7 @@
 package com.gonz.mx.repo.pattern.room
 
 import androidx.room.Dao
+import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
 import com.gonz.mx.repo.pattern.domain.entities.Pokemon
@@ -19,6 +20,9 @@ interface PokemonDao {
     @Query("SELECT count(*) FROM PersistentPokemon")
     fun countPokemonsInDb(): Flowable<Int>
 
+    @Query("DELETE FROM PersistentPokemon")
+    fun deleteAllPokemons(): Completable
+
     @Insert
-    fun insertPokemon(p: PokemonDao) : Completable
+    fun insertPokemon(p: Pokemon) : Completable
 }

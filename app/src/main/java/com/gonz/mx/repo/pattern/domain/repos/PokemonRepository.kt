@@ -4,6 +4,7 @@ import android.util.Log
 import com.gonz.mx.repo.pattern.domain.entities.Pokemon
 import com.gonz.mx.repo.pattern.domain.gateways.PokemonGateway
 import com.gonz.mx.repo.pattern.network.PokeApi
+import com.gonz.mx.repo.pattern.room.PokemonDao
 import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
@@ -11,7 +12,7 @@ import javax.inject.Singleton
 
 @Singleton
 class PokemonRepository(
-    private val pokeClient: PokeApi
+    private val pokeClient: PokeApi, private val pokemonDao: PokemonDao
 ) : PokemonGateway {
 
     private val cachedPokemons: MutableList<Pokemon> = mutableListOf()
@@ -35,7 +36,7 @@ class PokemonRepository(
 
         if(alreadyFetched) return
 
-        val x = pokeClient.getPokemon(id)
+        pokeClient.getPokemon(id)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({
@@ -56,8 +57,17 @@ class PokemonRepository(
     }
 
     override fun clearCache() {
-
+        cachedPokemons.clear()
     }
+
+    override fun persistPokemon(pokemon: Pokemon) {
+        pokemonDao
+            .insertPokemon(pokemon)
+            .subscribeOn(Schedulers.io())
+            .subscribe()
+    }
+
+
 
     private fun pokemonWithIdIsCached(id: Int) : Pokemon? {
         val filteredList = cachedPokemons.filter { it.id == id }
