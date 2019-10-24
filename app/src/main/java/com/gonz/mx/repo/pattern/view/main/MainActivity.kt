@@ -34,6 +34,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, HasAndroidInject
         when(v?.id) {
             R.id.singlePokemon -> getSinglePokemon()
             R.id.rangePokemon -> getRangePokemon()
+            R.id.showDb -> showPokemonsFromDB()
             else -> doNothingLol()
         }
     }
@@ -46,6 +47,10 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, HasAndroidInject
     }
 
     private fun getRangePokemon() {
+
+    }
+
+    fun showPokemonsFromDB() {
 
     }
 
