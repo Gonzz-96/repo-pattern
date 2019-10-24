@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.View
 import com.gonz.mx.repo.pattern.R
 import com.gonz.mx.repo.pattern.utils.Utils
+import com.gonz.mx.repo.pattern.view.show.db.ShowDBActivity
 import com.gonz.mx.repo.pattern.view.single.pokemon.SinglePokemonActivity
 import com.google.android.material.snackbar.Snackbar
 import dagger.android.AndroidInjector
@@ -28,6 +29,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, HasAndroidInject
     private fun initializeViews() {
         singlePokemon.setOnClickListener(this)
         rangePokemon.setOnClickListener(this)
+        showDb.setOnClickListener(this)
     }
 
     override fun onClick(v: View?) {
@@ -51,7 +53,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, HasAndroidInject
     }
 
     fun showPokemonsFromDB() {
-
+        startActivity(Intent(this, ShowDBActivity::class.java))
     }
 
     private fun doNothingLol() {
