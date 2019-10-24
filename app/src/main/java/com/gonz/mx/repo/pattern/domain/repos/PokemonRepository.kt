@@ -36,7 +36,7 @@ class PokemonRepository(
 
         if(alreadyFetched) return
 
-        pokeClient.getPokemon(id)
+        val x = pokeClient.getPokemon(id)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({
@@ -44,6 +44,14 @@ class PokemonRepository(
 
                 // Caching
                 cachedPokemons.add(it)
+
+                // Persisting
+                pokemonDao
+                    .insertPokemon(it)
+                    .subscribeOn(Schedulers.io())
+                    .subscribe {
+                        Log.v("REPOSITORY", "IN DB!")
+                    }
                 Log.v("REPOSITORY", "From network + ${cachedPokemons.toString()}")
             }, {})
     }
@@ -67,7 +75,13 @@ class PokemonRepository(
             .subscribe()
     }
 
-
+    override fun getAllPokemonsInDb(lambda: (List<Pokemon>) -> Unit) {
+        val x = pokemonDao
+            .getAllPokemons()
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe(lambda)
+    }
 
     private fun pokemonWithIdIsCached(id: Int) : Pokemon? {
         val filteredList = cachedPokemons.filter { it.id == id }
