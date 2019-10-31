@@ -1,10 +1,23 @@
 package project.scripts
 
+import project.scripts.Versions.coroutinesVersion
 import project.scripts.Versions.daggerVersion
+import project.scripts.Versions.espressoCoreVersion
+import project.scripts.Versions.junit4Version
+import project.scripts.Versions.leakCanaryVersion
 import project.scripts.Versions.materialVersion
+import project.scripts.Versions.mockitoKotlinVersion
+import project.scripts.Versions.mockitoVersion
+import project.scripts.Versions.okhttpVersion
 import project.scripts.Versions.pokeKotlinVersion
 import project.scripts.Versions.recyclerviewVersion
+import project.scripts.Versions.robolectricVersion
 import project.scripts.Versions.roomVersion
+import project.scripts.Versions.testRulesVersion
+import project.scripts.Versions.testRunnerVersion
+import project.scripts.Versions.workVersion
+import project.scripts.Versions.xTestCoreVersion
+import project.scripts.Versions.xTestExtJunitVersion
 
 class Dependencies {
 
@@ -28,6 +41,32 @@ class Dependencies {
         const val DaggerAndroidSupport = "com.google.dagger:dagger-android-support:$daggerVersion"
         const val DaggerAndroidAnnotationProcessor = "com.google.dagger:dagger-android-processor:$daggerVersion"
     }
+
+    /**
+     * Group test dependencies
+     */
+    object Testing {
+        const val Junit4 = "junit:junit:$junit4Version"
+        const val CoroutinesTest = "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutinesVersion"
+        const val RoboElectric = "org.robolectric:robolectric:$robolectricVersion"
+        const val MockitoCore = "org.mockito:mockito-core:$mockitoVersion"
+        const val MockitoInline = "org.mockito:mockito-inline:$mockitoVersion"
+        const val MockitoKotlin = "com.nhaarman.mockitokotlin2:mockito-kotlin:$mockitoKotlinVersion"
+        const val xTestCore = "androidx.test:core:$xTestCoreVersion"
+        const val xWorkTesting = "androidx.work:work-testing:$workVersion"
+        const val OkHttpMockWebServer = "com.squareup.okhttp3:mockwebserver:$okhttpVersion"
+    }
+
+    /**
+     * Group integration testing dependencies
+     */
+    object IntegrationTesting {
+        const val xTestRunner = "androidx.test:runner:$testRunnerVersion"
+        const val xTestExtJunit = "androidx.test.ext:junit:$xTestExtJunitVersion"
+        const val xTestRules = "androidx.test:rules:$testRulesVersion"
+        const val xEspressoCore = "androidx.test.espresso:espresso-core:$espressoCoreVersion"
+        const val LeakCanaryInstrumentation = "com.squareup.leakcanary:leakcanary-android-instrumentation:$leakCanaryVersion"
+    }
 }
 
 object Versions {
@@ -45,4 +84,21 @@ object Versions {
 
     // Material version
     const val materialVersion = "1.1.0-alpha06"
+
+    // Testing versions
+    const val junit4Version = "4.13-beta-3"
+    const val coroutinesVersion = "1.3.0-RC2"
+    const val robolectricVersion = "4.3"
+    const val xTestCoreVersion = "1.2.0"
+    const val workVersion = "2.2.0"
+    const val mockitoVersion = "2.23.0"
+    const val mockitoKotlinVersion = "2.1.0"
+    const val okhttpVersion = "4.1.1"
+
+    // Instrumentation testing versions
+    const val testRunnerVersion = "1.3.0-alpha02"
+    const val xTestExtJunitVersion = "1.1.2-alpha02"
+    const val testRulesVersion = "1.2.0"
+    const val espressoCoreVersion = "3.2.0"
+    const val leakCanaryVersion = "2.0-beta-2"
 }

@@ -25,6 +25,11 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    testOptions {
+        unitTests {
+            includeAndroidResources = true
+        }
+    }
 }
 
 dependencies {
@@ -61,7 +66,14 @@ dependencies {
     kapt Dependencies.DependencyInjection.DaggerAndroidAnnotationProcessor
 
     // Testing
-    testImplementation 'junit:junit:4.12'
+    testImplementation Dependencies.Testing.Junit4
+    testImplementation Dependencies.Testing.RoboElectric
+    testImplementation Dependencies.Testing.MockitoCore
+    testImplementation Dependencies.Testing.MockitoKotlin
+    testImplementation Dependencies.Testing.MockitoInline
+    testImplementation Dependencies.Testing.xTestCore
+    testImplementation Dependencies.Testing.xWorkTesting
+    testImplementation Dependencies.Testing.OkHttpMockWebServer
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
