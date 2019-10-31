@@ -11,21 +11,17 @@ import project.scripts.Versions.mockitoVersion
 import project.scripts.Versions.okhttpVersion
 import project.scripts.Versions.pokeKotlinVersion
 import project.scripts.Versions.recyclerviewVersion
-<<<<<<< HEAD
 import project.scripts.Versions.retrofitVersion
 import project.scripts.Versions.roomVersion
 import project.scripts.Versions.rxAndroidVersion
 import project.scripts.Versions.rxJavaVersion
 import project.scripts.Versions.rxRetroVersion
-=======
 import project.scripts.Versions.robolectricVersion
-import project.scripts.Versions.roomVersion
 import project.scripts.Versions.testRulesVersion
 import project.scripts.Versions.testRunnerVersion
 import project.scripts.Versions.workVersion
 import project.scripts.Versions.xTestCoreVersion
 import project.scripts.Versions.xTestExtJunitVersion
->>>>>>> develop
 
 class Dependencies {
 
@@ -52,11 +48,10 @@ class Dependencies {
         const val DaggerAndroidAnnotationProcessor = "com.google.dagger:dagger-android-processor:$daggerVersion"
     }
 
-<<<<<<< HEAD
     object Networking {
         const val Retrofit = "com.squareup.retrofit2:retrofit:$retrofitVersion"
         const val RxRetroAdapter = "com.squareup.retrofit2:adapter-rxjava2:$rxRetroVersion"
-=======
+    }
     /**
      * Group test dependencies
      */
@@ -81,7 +76,6 @@ class Dependencies {
         const val xTestRules = "androidx.test:rules:$testRulesVersion"
         const val xEspressoCore = "androidx.test.espresso:espresso-core:$espressoCoreVersion"
         const val LeakCanaryInstrumentation = "com.squareup.leakcanary:leakcanary-android-instrumentation:$leakCanaryVersion"
->>>>>>> develop
     }
 }
 
@@ -101,7 +95,6 @@ object Versions {
     // Material version
     const val materialVersion = "1.1.0-alpha06"
 
-<<<<<<< HEAD
     // RxJava
     const val rxJavaVersion = "2.2.13"
     const val rxAndroidVersion = "2.1.1"
@@ -109,7 +102,6 @@ object Versions {
     // Retrofit
     const val retrofitVersion = "2.6.2"
     const val rxRetroVersion = "2.6.2"
-=======
     // Testing versions
     const val junit4Version = "4.13-beta-3"
     const val coroutinesVersion = "1.3.0-RC2"
@@ -126,5 +118,4 @@ object Versions {
     const val testRulesVersion = "1.2.0"
     const val espressoCoreVersion = "3.2.0"
     const val leakCanaryVersion = "2.0-beta-2"
->>>>>>> develop
 }

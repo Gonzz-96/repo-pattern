@@ -8,7 +8,7 @@ import javax.inject.Singleton
 class GetRangePokemonUseCase(val gateway: PokemonGateway) {
 
     operator fun invoke(init: Int, end: Int) {
-        gateway.getRangePokemon(init, end)
+
     }
 
 }

@@ -51,7 +51,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, HasAndroidInject
 
     }
 
-    fun showPokemonsFromDB() {
+    private fun showPokemonsFromDB() {
         startActivity(Intent(this, ShowDBActivity::class.java))
     }
 

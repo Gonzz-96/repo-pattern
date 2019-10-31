@@ -1,5 +1,6 @@
 package com.gonz.mx.repo.pattern.view.single.pokemon
 
+import com.gonz.mx.repo.pattern.domain.entities.Pokemon
 import com.gonz.mx.repo.pattern.domain.usecases.GetSinglePokemonUseCase
 
 class SinglePokemonPresenter(
@@ -8,6 +9,6 @@ class SinglePokemonPresenter(
 ) : SinglePokemonContract.Presenter {
 
     override fun getPokemon(id: Int) {
-        getSinglePokemon(id, view::showPokemon)
+        val x = getSinglePokemon(id).subscribe(view::showPokemon, {})
     }
 }

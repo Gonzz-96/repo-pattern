@@ -1,11 +1,13 @@
 package com.gonz.mx.repo.pattern.domain.gateways
 
+import io.reactivex.Observable
 import com.gonz.mx.repo.pattern.domain.entities.Pokemon
+import io.reactivex.Flowable
+import java.util.*
 
 interface PokemonGateway {
-    fun getSinglePokemon(id: Int, l: (Pokemon) -> Unit)
-    fun getRangePokemon(init: Int, end: Int)
-    fun getAllPokemonsInDb(lambda: (List<Pokemon>) -> Unit)
+    fun getSinglePokemon(id: Int) : Observable<Pokemon>
+    fun getAllPokemonsInDb() : Flowable<List<Pokemon>>
     fun clearDatabase()
     fun clearCache()
 

@@ -8,7 +8,7 @@ import javax.inject.Singleton
 class GetAllPokemonsInDbUseCase(val gateway: PokemonGateway) {
 
     operator fun invoke(lambda: (List<Pokemon>) -> Unit) {
-        gateway.getAllPokemonsInDb(lambda)
+        gateway.getAllPokemonsInDb()
     }
 
 }
