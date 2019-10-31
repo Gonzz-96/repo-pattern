@@ -6,6 +6,7 @@ import com.gonz.mx.repo.pattern.domain.repos.PokemonRepository
 import com.gonz.mx.repo.pattern.domain.usecases.GetAllPokemonsInDbUseCase
 import com.gonz.mx.repo.pattern.domain.usecases.GetRangePokemonUseCase
 import com.gonz.mx.repo.pattern.domain.usecases.GetSinglePokemonUseCase
+import com.gonz.mx.repo.pattern.handlers.NetworkHandler
 import com.gonz.mx.repo.pattern.network.PokeApi
 import com.gonz.mx.repo.pattern.room.PokemonDao
 import com.gonz.mx.repo.pattern.room.PokemonDatabase
@@ -51,4 +52,8 @@ class AppModule {
     // Gateway
     @Provides
     fun getGateway(client: PokeApi, dao: PokemonDao) : PokemonGateway = PokemonRepository(client, dao)
+
+    // Handlers
+    @Provides
+    fun getNetworkHandler(app: Application): NetworkHandler = NetworkHandler(app.applicationContext)
 }

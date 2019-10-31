@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import com.gonz.mx.repo.pattern.R
-import com.gonz.mx.repo.pattern.utils.Utils
 import com.gonz.mx.repo.pattern.view.show.db.ShowDBActivity
 import com.gonz.mx.repo.pattern.view.single.pokemon.SinglePokemonActivity
 import com.google.android.material.snackbar.Snackbar
@@ -60,8 +59,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, HasAndroidInject
 
     }
 
-    private fun showSnackBar(message: String) {
-        Snackbar.make(mainLayout, message, Snackbar.LENGTH_SHORT).show()
+    private fun showSnackBar(message: String, duration: Int = Snackbar.LENGTH_SHORT) {
+        Snackbar.make(mainLayout, message, duration).show()
     }
 
     override fun androidInjector(): AndroidInjector<Any> = dispatch
