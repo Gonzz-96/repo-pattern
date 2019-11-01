@@ -51,7 +51,7 @@ class AppModule {
 
     // Gateway
     @Provides
-    fun getGateway(client: PokeApi, dao: PokemonDao) : PokemonGateway = PokemonRepository(client, dao)
+    fun getGateway(client: PokeApi, dao: PokemonDao, handler: NetworkHandler) : PokemonGateway = PokemonRepository(client, dao, handler)
 
     // Handlers
     @Provides
