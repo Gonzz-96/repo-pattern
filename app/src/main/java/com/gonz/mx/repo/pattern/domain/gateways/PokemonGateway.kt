@@ -7,7 +7,7 @@ import java.util.*
 
 interface PokemonGateway {
     fun getSinglePokemon(id: Int) : Observable<Pokemon>
-    fun getAllPokemonsInDb() : Flowable<List<Pokemon>>
+    fun getAllPokemonsInDb() : Observable<List<Pokemon>>
     fun clearDatabase()
     fun clearCache()
 

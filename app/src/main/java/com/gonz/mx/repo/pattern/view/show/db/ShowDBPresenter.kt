@@ -8,7 +8,8 @@ class ShowDBPresenter(
     private val getAllPokemonsInDbUseCase: GetAllPokemonsInDbUseCase
 ) : ShowDBContract.Presenter {
 
-    override fun getPokemonsInDB(callback: (List<Pokemon>) -> Unit) {
-        getAllPokemonsInDbUseCase(callback)
+    override fun getPokemonsInDB(execute: (List<Pokemon>) -> Unit) {
+        getAllPokemonsInDbUseCase()
+            .subscribe(execute)
     }
 }

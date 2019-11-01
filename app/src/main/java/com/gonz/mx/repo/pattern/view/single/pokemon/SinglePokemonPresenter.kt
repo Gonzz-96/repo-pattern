@@ -9,6 +9,6 @@ class SinglePokemonPresenter(
 ) : SinglePokemonContract.Presenter {
 
     override fun getPokemon(id: Int) {
-        val x = getSinglePokemon(id).subscribe(view::showPokemon, {})
+        getSinglePokemon(id).subscribe(view::showPokemon)
     }
 }
