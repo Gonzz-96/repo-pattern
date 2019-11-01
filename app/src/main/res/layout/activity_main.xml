@@ -23,41 +23,6 @@
             android:layout_weight="1"/>
     </LinearLayout>
 
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <Button
-            android:id="@+id/rangePokemon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Range Of Pokemon"
-            android:layout_gravity="center"
-            android:layout_weight="2"
-            android:layout_margin="10dp" />
-
-        <EditText
-            android:id="@+id/rangePokemonInputInit"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="3"
-            android:hint="Init"
-            android:inputType="numberDecimal"
-            android:maxLength="3"
-            android:layout_margin="10dp" />
-
-        <EditText
-            android:id="@+id/rangePokemonInputEnd"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:maxLength="3"
-            android:hint="End"
-            android:inputType="numberDecimal"
-            android:layout_weight="3"
-            android:layout_margin="10dp" />
-    </LinearLayout>
-
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -79,25 +44,4 @@
             android:layout_margin="10dp" />
     </LinearLayout>
 
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center">
-        <Button
-            android:id="@+id/clearCache"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Clear Cache"
-            android:layout_gravity="center"
-            android:layout_margin="10dp" />
-
-        <Button
-            android:id="@+id/showCache"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Show Pokemons Cache"
-            android:layout_gravity="center"
-            android:layout_margin="10dp" />
-    </LinearLayout>
 </LinearLayout>
