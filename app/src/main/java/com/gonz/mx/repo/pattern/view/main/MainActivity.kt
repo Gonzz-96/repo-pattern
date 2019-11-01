@@ -36,7 +36,6 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, HasAndroidInject
             R.id.singlePokemon -> getSinglePokemon()
             R.id.rangePokemon -> getRangePokemon()
             R.id.showDb -> showPokemonsFromDB()
-            else -> doNothingLol()
         }
     }
 
@@ -55,9 +54,6 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, HasAndroidInject
         startActivity(Intent(this, ShowDBActivity::class.java))
     }
 
-    private fun doNothingLol() {
-
-    }
 
     private fun showSnackBar(message: String, duration: Int = Snackbar.LENGTH_SHORT) {
         Snackbar.make(mainLayout, message, duration).show()
