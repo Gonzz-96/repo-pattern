@@ -1,5 +1,6 @@
 package com.gonz.mx.repo.pattern.di
 
+import com.gonz.mx.repo.pattern.view.main.MainActivity
 import com.gonz.mx.repo.pattern.view.show.db.ShowDBActivity
 import com.gonz.mx.repo.pattern.view.single.pokemon.SinglePokemonActivity
 import dagger.Module
@@ -7,6 +8,9 @@ import dagger.android.ContributesAndroidInjector
 
 @Module
 abstract class ActivityBinder {
+
+    @ContributesAndroidInjector(modules = [MainModule::class])
+    abstract fun mainActivity() : MainActivity
 
     @ContributesAndroidInjector(modules = [SinglePokemonModule::class])
     abstract fun singlePokemonActivity() : SinglePokemonActivity

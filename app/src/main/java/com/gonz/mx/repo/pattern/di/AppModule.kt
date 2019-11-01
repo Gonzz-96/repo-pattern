@@ -3,8 +3,8 @@ package com.gonz.mx.repo.pattern.di
 import android.app.Application
 import com.gonz.mx.repo.pattern.domain.gateways.PokemonGateway
 import com.gonz.mx.repo.pattern.domain.repos.PokemonRepository
+import com.gonz.mx.repo.pattern.domain.usecases.DeleteAllPokemonsInDbUseCase
 import com.gonz.mx.repo.pattern.domain.usecases.GetAllPokemonsInDbUseCase
-import com.gonz.mx.repo.pattern.domain.usecases.GetRangePokemonUseCase
 import com.gonz.mx.repo.pattern.domain.usecases.GetSinglePokemonUseCase
 import com.gonz.mx.repo.pattern.handlers.NetworkHandler
 import com.gonz.mx.repo.pattern.network.PokeApi
@@ -16,7 +16,6 @@ import dagger.Provides
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
-import javax.inject.Singleton
 
 @Module
 class AppModule {
@@ -44,10 +43,10 @@ class AppModule {
     fun getSinglePokemonUseCase(gw: PokemonGateway) : GetSinglePokemonUseCase = GetSinglePokemonUseCase(gw)
 
     @Provides
-    fun getRangePokemonUseCase(gw: PokemonGateway) : GetRangePokemonUseCase = GetRangePokemonUseCase(gw)
+    fun getAllPokemonsInDbUseCase(gw: PokemonGateway) : GetAllPokemonsInDbUseCase = GetAllPokemonsInDbUseCase(gw)
 
     @Provides
-    fun getAllPokemonsInDbUseCase(gw: PokemonGateway) : GetAllPokemonsInDbUseCase = GetAllPokemonsInDbUseCase(gw)
+    fun getDeleteAllPokemonsInDbUseCase(gw: PokemonGateway) : DeleteAllPokemonsInDbUseCase = DeleteAllPokemonsInDbUseCase(gw)
 
     // Gateway
     @Provides
