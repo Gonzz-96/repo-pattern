@@ -84,7 +84,7 @@ class PokemonRepository(
 
     override fun getRangeOfPokemons(init: Int, end: Int): Observable<Pokemon> =
         Observable.range(init, (end - init) + 1)
-            .concatMap({ id -> getSinglePokemon(id) }, 10)
+            .flatMap({ id -> getSinglePokemon(id) }, 10)
 
 
     private fun pokemonWithIdIsCached(id: Int) : Pokemon? {
