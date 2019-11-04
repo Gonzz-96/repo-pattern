@@ -18,14 +18,19 @@ class RangeOfPokemonsActivity : AppCompatActivity(), HasAndroidInjector, RangeOf
     @Inject lateinit var dispatch: DispatchingAndroidInjector<Any>
     @Inject lateinit var presenter: RangeOfPokemonsContract.Presenter
 
+    val pokemonAdapter = PokemonAdapter(mutableListOf())
+
     override fun onCreate(savedInstanceState: Bundle?) {
         AndroidInjection.inject(this)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_range_of_pokemons)
 
-        pokemonsRecyclerView.adapter = PokemonAdapter(emptyList())
+
+        pokemonsRecyclerView.adapter = pokemonAdapter
 
         getRangeOfPokemons.setOnClickListener {
+            pokemonAdapter.pokemonList.clear()
+            pokemonAdapter.notifyDataSetChanged()
             processInputs()
         }
     }
@@ -34,8 +39,8 @@ class RangeOfPokemonsActivity : AppCompatActivity(), HasAndroidInjector, RangeOf
 
     override fun showPokemon(p: Pokemon) {
         Log.v("REPO_PATTERN", p.toString())
-
-
+        pokemonAdapter.pokemonList.add(p)
+        pokemonAdapter.notifyDataSetChanged()
     }
 
     private fun processInputs() {

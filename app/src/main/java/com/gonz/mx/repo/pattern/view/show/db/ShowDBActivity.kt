@@ -25,7 +25,7 @@ class ShowDBActivity : AppCompatActivity(), ShowDBContract.View, HasAndroidInjec
         presenter.getPokemonsInDB { list ->
             pokemonRecyclerView.apply {
                 layoutManager = LinearLayoutManager(this@ShowDBActivity)
-                adapter = PokemonAdapter(list)
+                adapter = PokemonAdapter(list.toMutableList())
             }
         }
     }
