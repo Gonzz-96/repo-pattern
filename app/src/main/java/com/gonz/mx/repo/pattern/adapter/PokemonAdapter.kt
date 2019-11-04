@@ -9,7 +9,7 @@ import com.gonz.mx.repo.pattern.domain.entities.Pokemon
 import kotlinx.android.synthetic.main.item_pokemon.view.*
 
 class PokemonAdapter(
-    private var pokemonList: List<Pokemon>
+    var pokemonList: List<Pokemon>
 ) : RecyclerView.Adapter<PokemonAdapter.PokemonViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PokemonViewHolder {
