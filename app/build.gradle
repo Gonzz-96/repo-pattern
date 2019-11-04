@@ -69,6 +69,10 @@ dependencies {
     api Dependencies.DependencyInjection.DaggerAndroidSupport
     kapt Dependencies.DependencyInjection.DaggerAndroidAnnotationProcessor
 
+    // Koin
+    implementation Dependencies.DependencyInjection.KoinCore
+    implementation Dependencies.DependencyInjection.KoinAndroid
+
     // Retrofit + RxJava
     implementation Dependencies.Networking.Retrofit
     implementation Dependencies.Networking.RxRetroAdapter

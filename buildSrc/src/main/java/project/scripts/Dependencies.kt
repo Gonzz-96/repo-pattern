@@ -4,6 +4,7 @@ import project.scripts.Versions.coroutinesVersion
 import project.scripts.Versions.daggerVersion
 import project.scripts.Versions.espressoCoreVersion
 import project.scripts.Versions.junit4Version
+import project.scripts.Versions.koinVersion
 import project.scripts.Versions.leakCanaryVersion
 import project.scripts.Versions.materialVersion
 import project.scripts.Versions.mockitoKotlinVersion
@@ -46,6 +47,9 @@ class Dependencies {
         const val DaggerAndroid = "com.google.dagger:dagger-android:$daggerVersion"
         const val DaggerAndroidSupport = "com.google.dagger:dagger-android-support:$daggerVersion"
         const val DaggerAndroidAnnotationProcessor = "com.google.dagger:dagger-android-processor:$daggerVersion"
+
+        const val KoinCore = "org.koin:koin-core:$koinVersion"
+        const val KoinAndroid = "org.koin:koin-android:$koinVersion"
     }
 
     object Networking {
@@ -118,4 +122,7 @@ object Versions {
     const val testRulesVersion = "1.2.0"
     const val espressoCoreVersion = "3.2.0"
     const val leakCanaryVersion = "2.0-beta-2"
+
+    // Koin version
+    const val koinVersion = "2.0.1"
 }
