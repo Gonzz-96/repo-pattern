@@ -1,4 +1,4 @@
-package com.gonz.mx.repo.pattern.di
+package com.gonz.mx.repo.pattern.di.koin
 
 import com.gonz.mx.repo.pattern.domain.gateways.PokemonGateway
 import com.gonz.mx.repo.pattern.domain.repos.PokemonRepository
@@ -8,7 +8,6 @@ import com.gonz.mx.repo.pattern.domain.usecases.GetRangeOfPokemonsUseCase
 import com.gonz.mx.repo.pattern.domain.usecases.GetSinglePokemonUseCase
 import com.gonz.mx.repo.pattern.handlers.NetworkHandler
 import com.gonz.mx.repo.pattern.network.PokeApi
-import com.gonz.mx.repo.pattern.room.PokemonDao
 import com.gonz.mx.repo.pattern.room.PokemonDatabase
 import com.gonz.mx.repo.pattern.utils.Utils
 import org.koin.core.module.Module
@@ -19,7 +18,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 val koinAppModule: Module = module {
     // Pokemon client
-    single<PokeApi> {
+    single {
         Retrofit
             .Builder()
             .baseUrl(Utils.BASE_URL)
@@ -30,14 +29,14 @@ val koinAppModule: Module = module {
     }
 
     // Pokemon database dao
-    single<PokemonDao> {
+    single {
         PokemonDatabase
             .getInstance(get())
             .pokemonDao()
     }
 
     // Handlers
-    single<NetworkHandler> {
+    single {
         NetworkHandler(get())
     }
 
@@ -47,21 +46,21 @@ val koinAppModule: Module = module {
     }
 
     // Use cases
-    single<GetSinglePokemonUseCase> {
+    single {
         GetSinglePokemonUseCase(get())
     }
 
 
-    single<GetAllPokemonsInDbUseCase> {
+    single {
         GetAllPokemonsInDbUseCase(get())
     }
 
 
-    single<DeleteAllPokemonsInDbUseCase> {
+    single {
         DeleteAllPokemonsInDbUseCase(get())
     }
 
-    single<GetRangeOfPokemonsUseCase> {
+    single {
         GetRangeOfPokemonsUseCase(get())
     }
 }

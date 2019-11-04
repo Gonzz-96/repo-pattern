@@ -9,18 +9,20 @@ import com.gonz.mx.repo.pattern.R
 import com.gonz.mx.repo.pattern.view.range.pokemon.RangeOfPokemonsActivity
 import com.gonz.mx.repo.pattern.view.show.db.ShowDBActivity
 import com.gonz.mx.repo.pattern.view.single.pokemon.SinglePokemonActivity
-import com.google.android.material.snackbar.Snackbar
 import dagger.android.AndroidInjection
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.HasAndroidInjector
 import kotlinx.android.synthetic.main.activity_main.*
+import org.koin.android.ext.android.inject
+import org.koin.core.parameter.parametersOf
 import javax.inject.Inject
 
 class MainActivity : AppCompatActivity(), View.OnClickListener, HasAndroidInjector, MainContract.View {
 
     @Inject lateinit var dispatch: DispatchingAndroidInjector<Any>
-    @Inject lateinit var presenter: MainContract.Presenter
+
+    var presenter: MainContract.Presenter by inject { parametersOf(this) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         AndroidInjection.inject(this)
