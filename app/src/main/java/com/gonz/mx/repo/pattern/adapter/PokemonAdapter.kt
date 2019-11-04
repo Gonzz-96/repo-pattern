@@ -1,4 +1,4 @@
-package com.gonz.mx.repo.pattern.view.show.db.adapter
+package com.gonz.mx.repo.pattern.adapter
 
 import android.view.LayoutInflater
 import android.view.View

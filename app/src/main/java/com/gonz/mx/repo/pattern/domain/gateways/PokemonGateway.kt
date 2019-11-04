@@ -10,6 +10,7 @@ interface PokemonGateway {
     fun getAllPokemonsInDb() : Observable<List<Pokemon>>
     fun clearDatabase()
     fun clearCache()
+    fun getRangeOfPokemons(init: Int, end: Int) : Observable<Pokemon>
 
     // Experimental
     fun persistPokemon(pokemon: Pokemon) {}

@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.gonz.mx.repo.pattern.R
-import com.gonz.mx.repo.pattern.view.show.db.adapter.PokemonAdapter
+import com.gonz.mx.repo.pattern.adapter.PokemonAdapter
 import dagger.android.AndroidInjection
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector

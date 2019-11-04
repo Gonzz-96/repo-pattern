@@ -5,6 +5,7 @@ import com.gonz.mx.repo.pattern.domain.gateways.PokemonGateway
 import com.gonz.mx.repo.pattern.domain.repos.PokemonRepository
 import com.gonz.mx.repo.pattern.domain.usecases.DeleteAllPokemonsInDbUseCase
 import com.gonz.mx.repo.pattern.domain.usecases.GetAllPokemonsInDbUseCase
+import com.gonz.mx.repo.pattern.domain.usecases.GetRangeOfPokemonsUseCase
 import com.gonz.mx.repo.pattern.domain.usecases.GetSinglePokemonUseCase
 import com.gonz.mx.repo.pattern.handlers.NetworkHandler
 import com.gonz.mx.repo.pattern.network.PokeApi
@@ -35,7 +36,7 @@ class AppModule {
     @Provides
     fun getPokemonDao(app: Application) : PokemonDao =
         PokemonDatabase
-            .getInstance(app)
+            .getInstance(app.applicationContext)
             .pokemonDao()
 
     // Use cases
@@ -47,6 +48,9 @@ class AppModule {
 
     @Provides
     fun getDeleteAllPokemonsInDbUseCase(gw: PokemonGateway) : DeleteAllPokemonsInDbUseCase = DeleteAllPokemonsInDbUseCase(gw)
+
+    @Provides
+    fun getRangeOfPokemonsUseCase(gw: PokemonGateway) : GetRangeOfPokemonsUseCase = GetRangeOfPokemonsUseCase(gw)
 
     // Gateway
     @Provides

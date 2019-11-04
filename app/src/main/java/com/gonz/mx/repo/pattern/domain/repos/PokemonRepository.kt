@@ -21,9 +21,8 @@ class PokemonRepository(
 
     private val cachedPokemons: MutableList<Pokemon> = mutableListOf()
 
-    override fun getSinglePokemon(id: Int) : Observable<Pokemon> {
-        val i: Observable<Pokemon> = Observable.create { s ->
-
+    override fun getSinglePokemon(id: Int) : Observable<Pokemon> =
+        Observable.create { s ->
             val cachedPokemon = pokemonWithIdIsCached(id)
 
             // Get from cache
@@ -60,9 +59,6 @@ class PokemonRepository(
             }
         }
 
-        return i
-    }
-
     override fun clearDatabase() {
         pokemonDao.deleteAllPokemons()
             .subscribeOn(Schedulers.io())
@@ -85,6 +81,11 @@ class PokemonRepository(
             .toObservable()
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
+
+    override fun getRangeOfPokemons(init: Int, end: Int): Observable<Pokemon> =
+        Observable.range(init, (end - init) + 1)
+            .flatMap({ id -> getSinglePokemon(id) }, 10)
+
 
     private fun pokemonWithIdIsCached(id: Int) : Pokemon? {
         val filteredList = cachedPokemons.filter { it.id == id }

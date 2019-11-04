@@ -1,6 +1,7 @@
 package com.gonz.mx.repo.pattern.di
 
 import com.gonz.mx.repo.pattern.view.main.MainActivity
+import com.gonz.mx.repo.pattern.view.range.pokemon.RangeOfPokemonsActivity
 import com.gonz.mx.repo.pattern.view.show.db.ShowDBActivity
 import com.gonz.mx.repo.pattern.view.single.pokemon.SinglePokemonActivity
 import dagger.Module
@@ -17,5 +18,8 @@ abstract class ActivityBinder {
 
     @ContributesAndroidInjector(modules = [ShowBDModule::class])
     abstract fun showDbAcvitivy() : ShowDBActivity
+
+    @ContributesAndroidInjector(modules = [RangeOfPokemonsModule::class])
+    abstract fun rangeOfPokemonsActivity() : RangeOfPokemonsActivity
 
 }

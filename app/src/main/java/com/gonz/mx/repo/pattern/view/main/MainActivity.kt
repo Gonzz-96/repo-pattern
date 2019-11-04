@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import com.gonz.mx.repo.pattern.R
+import com.gonz.mx.repo.pattern.view.range.pokemon.RangeOfPokemonsActivity
 import com.gonz.mx.repo.pattern.view.show.db.ShowDBActivity
 import com.gonz.mx.repo.pattern.view.single.pokemon.SinglePokemonActivity
 import com.google.android.material.snackbar.Snackbar
@@ -33,6 +34,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, HasAndroidInject
         singlePokemon.setOnClickListener(this)
         showDb.setOnClickListener(this)
         clearDb.setOnClickListener(this)
+        rangePokemon.setOnClickListener(this)
     }
 
     override fun onClick(v: View?) {
@@ -40,6 +42,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, HasAndroidInject
             R.id.singlePokemon -> getSinglePokemon()
             R.id.showDb -> showPokemonsFromDB()
             R.id.clearDb -> clearDbActivity()
+            R.id.rangePokemon -> rangeOfPokemons()
         }
     }
 
@@ -57,6 +60,10 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, HasAndroidInject
     private fun clearDbActivity() {
         presenter.deletePokemonsFromDB()
         Toast.makeText(this, "DB Cleared!", Toast.LENGTH_SHORT).show()
+    }
+
+    private fun rangeOfPokemons() {
+        startActivity(Intent(this, RangeOfPokemonsActivity::class.java))
     }
 
     override fun androidInjector(): AndroidInjector<Any> = dispatch

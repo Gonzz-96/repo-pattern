@@ -13,7 +13,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".view.show.db.ShowDBActivity"></activity>
+        <activity android:name=".view.range.pokemon.RangeOfPokemonsActivity"></activity>
+        <activity android:name=".view.show.db.ShowDBActivity" />
         <activity android:name=".view.single.pokemon.SinglePokemonActivity" />
         <activity android:name=".view.main.MainActivity">
             <intent-filter>
