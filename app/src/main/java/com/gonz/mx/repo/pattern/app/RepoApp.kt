@@ -6,6 +6,7 @@ import com.gonz.mx.repo.pattern.di.DaggerAppComponent
 import com.gonz.mx.repo.pattern.di.koin.koinAppModule
 import com.gonz.mx.repo.pattern.di.koin.mainModule
 import com.gonz.mx.repo.pattern.di.koin.rangeOfPokemonsModule
+import com.gonz.mx.repo.pattern.di.koin.showDbModule
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.HasAndroidInjector
@@ -30,7 +31,7 @@ class RepoApp : Application(), HasAndroidInjector {
         startKoin {
             androidLogger()
             androidContext(this@RepoApp)
-            modules(listOf(koinAppModule, mainModule, rangeOfPokemonsModule))
+            modules(listOf(koinAppModule, mainModule, rangeOfPokemonsModule, showDbModule))
         }
     }
 

@@ -10,12 +10,13 @@ import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.HasAndroidInjector
 import kotlinx.android.synthetic.main.activity_show_db.*
+import org.koin.android.ext.android.inject
+import org.koin.core.parameter.parametersOf
 import javax.inject.Inject
 
-class ShowDBActivity : AppCompatActivity(), ShowDBContract.View, HasAndroidInjector {
+class ShowDBActivity : AppCompatActivity(), ShowDBContract.View {
 
-    @Inject lateinit var dispatch: DispatchingAndroidInjector<Any>
-    @Inject lateinit var presenter: ShowDBContract.Presenter
+    val presenter: ShowDBContract.Presenter by inject { parametersOf(this) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,6 +30,4 @@ class ShowDBActivity : AppCompatActivity(), ShowDBContract.View, HasAndroidInjec
             }
         }
     }
-
-    override fun androidInjector(): AndroidInjector<Any> = dispatch
 }
