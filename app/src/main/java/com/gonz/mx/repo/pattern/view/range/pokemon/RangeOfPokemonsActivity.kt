@@ -11,17 +11,17 @@ import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.HasAndroidInjector
 import kotlinx.android.synthetic.main.activity_range_of_pokemons.*
+import org.koin.android.ext.android.inject
+import org.koin.core.parameter.parametersOf
 import javax.inject.Inject
 
-class RangeOfPokemonsActivity : AppCompatActivity(), HasAndroidInjector, RangeOfPokemonsContract.View {
+class RangeOfPokemonsActivity : AppCompatActivity(), RangeOfPokemonsContract.View {
 
-    @Inject lateinit var dispatch: DispatchingAndroidInjector<Any>
-    @Inject lateinit var presenter: RangeOfPokemonsContract.Presenter
+    val presenter: RangeOfPokemonsContract.Presenter by inject { parametersOf(this) }
 
     val pokemonAdapter = PokemonAdapter(mutableListOf())
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        AndroidInjection.inject(this)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_range_of_pokemons)
 
@@ -34,8 +34,6 @@ class RangeOfPokemonsActivity : AppCompatActivity(), HasAndroidInjector, RangeOf
             processInputs()
         }
     }
-
-    override fun androidInjector(): AndroidInjector<Any> = dispatch
 
     override fun showPokemon(p: Pokemon) {
         Log.v("REPO_PATTERN", p.toString())
