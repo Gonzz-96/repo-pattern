@@ -1,6 +1,5 @@
 package com.gonz.mx.repo.pattern.di
 
-import android.app.Application
 import com.gonz.mx.repo.pattern.domain.gateways.PokemonGateway
 import com.gonz.mx.repo.pattern.domain.repos.PokemonRepository
 import com.gonz.mx.repo.pattern.domain.usecases.DeleteAllPokemonsInDbUseCase
@@ -9,21 +8,21 @@ import com.gonz.mx.repo.pattern.domain.usecases.GetRangeOfPokemonsUseCase
 import com.gonz.mx.repo.pattern.domain.usecases.GetSinglePokemonUseCase
 import com.gonz.mx.repo.pattern.handlers.NetworkHandler
 import com.gonz.mx.repo.pattern.network.PokeApi
-import com.gonz.mx.repo.pattern.room.PokemonDao
 import com.gonz.mx.repo.pattern.room.PokemonDatabase
 import com.gonz.mx.repo.pattern.utils.Utils
-import dagger.Module
-import dagger.Provides
+import org.koin.core.module.Module
+import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 
-@Module
-class AppModule {
-
-    // Pokemon service
-    @Provides
-    fun getPokemonApi() : PokeApi =
+/**
+ * This module holds the entities that will be used along
+ * all the application, that's why there are singletons.
+ */
+val koinAppModule: Module = module {
+    // Pokemon client
+    single {
         Retrofit
             .Builder()
             .baseUrl(Utils.BASE_URL)
@@ -31,32 +30,41 @@ class AppModule {
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .build()
             .create(PokeApi::class.java)
+    }
 
-    // Pokemon dao
-    @Provides
-    fun getPokemonDao(app: Application) : PokemonDao =
+    // Pokemon database dao
+    single {
         PokemonDatabase
-            .getInstance(app.applicationContext)
+            .getInstance(get())
             .pokemonDao()
-
-    // Use cases
-    @Provides
-    fun getSinglePokemonUseCase(gw: PokemonGateway) : GetSinglePokemonUseCase = GetSinglePokemonUseCase(gw)
-
-    @Provides
-    fun getAllPokemonsInDbUseCase(gw: PokemonGateway) : GetAllPokemonsInDbUseCase = GetAllPokemonsInDbUseCase(gw)
-
-    @Provides
-    fun getDeleteAllPokemonsInDbUseCase(gw: PokemonGateway) : DeleteAllPokemonsInDbUseCase = DeleteAllPokemonsInDbUseCase(gw)
-
-    @Provides
-    fun getRangeOfPokemonsUseCase(gw: PokemonGateway) : GetRangeOfPokemonsUseCase = GetRangeOfPokemonsUseCase(gw)
-
-    // Gateway
-    @Provides
-    fun getGateway(client: PokeApi, dao: PokemonDao, handler: NetworkHandler) : PokemonGateway = PokemonRepository(client, dao, handler)
+    }
 
     // Handlers
-    @Provides
-    fun getNetworkHandler(app: Application): NetworkHandler = NetworkHandler(app.applicationContext)
+    single {
+        NetworkHandler(get())
+    }
+
+    // Gateways (Repos)
+    single<PokemonGateway> {
+        PokemonRepository(get(), get(), get())
+    }
+
+    // Use cases
+    single {
+        GetSinglePokemonUseCase(get())
+    }
+
+
+    single {
+        GetAllPokemonsInDbUseCase(get())
+    }
+
+
+    single {
+        DeleteAllPokemonsInDbUseCase(get())
+    }
+
+    single {
+        GetRangeOfPokemonsUseCase(get())
+    }
 }

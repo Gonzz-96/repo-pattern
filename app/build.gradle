@@ -61,14 +61,6 @@ dependencies {
     // PokeKotlin
     implementation Dependencies.Others.PokeKotlin
 
-    // Dagger
-    implementation Dependencies.DependencyInjection.Dagger
-    kapt Dependencies.DependencyInjection.DaggerCompiler
-
-    api Dependencies.DependencyInjection.DaggerAndroid
-    api Dependencies.DependencyInjection.DaggerAndroidSupport
-    kapt Dependencies.DependencyInjection.DaggerAndroidAnnotationProcessor
-
     // Koin
     implementation Dependencies.DependencyInjection.KoinCore
     implementation Dependencies.DependencyInjection.KoinAndroid

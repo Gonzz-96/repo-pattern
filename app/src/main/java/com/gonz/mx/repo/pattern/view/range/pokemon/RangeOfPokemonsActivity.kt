@@ -1,19 +1,14 @@
 package com.gonz.mx.repo.pattern.view.range.pokemon
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
 import com.gonz.mx.repo.pattern.R
 import com.gonz.mx.repo.pattern.adapter.PokemonAdapter
 import com.gonz.mx.repo.pattern.domain.entities.Pokemon
-import dagger.android.AndroidInjection
-import dagger.android.AndroidInjector
-import dagger.android.DispatchingAndroidInjector
-import dagger.android.HasAndroidInjector
 import kotlinx.android.synthetic.main.activity_range_of_pokemons.*
 import org.koin.android.ext.android.inject
 import org.koin.core.parameter.parametersOf
-import javax.inject.Inject
 
 class RangeOfPokemonsActivity : AppCompatActivity(), RangeOfPokemonsContract.View {
 

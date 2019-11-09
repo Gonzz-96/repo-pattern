@@ -9,7 +9,6 @@ import com.gonz.mx.repo.pattern.R
 import com.gonz.mx.repo.pattern.view.range.pokemon.RangeOfPokemonsActivity
 import com.gonz.mx.repo.pattern.view.show.db.ShowDBActivity
 import com.gonz.mx.repo.pattern.view.single.pokemon.SinglePokemonActivity
-import dagger.android.AndroidInjection
 import kotlinx.android.synthetic.main.activity_main.*
 import org.koin.android.ext.android.inject
 import org.koin.core.parameter.parametersOf
@@ -20,7 +19,6 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, MainContract.Vie
     val presenter: MainContract.Presenter by inject { parametersOf(this) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        AndroidInjection.inject(this)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 

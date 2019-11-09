@@ -1,4 +1,4 @@
-package com.gonz.mx.repo.pattern.di.koin
+package com.gonz.mx.repo.pattern.di
 
 import com.gonz.mx.repo.pattern.view.show.db.ShowDBContract
 import com.gonz.mx.repo.pattern.view.show.db.ShowDBPresenter

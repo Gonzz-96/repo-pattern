@@ -1,19 +1,14 @@
 package com.gonz.mx.repo.pattern.di
 
-import com.gonz.mx.repo.pattern.domain.usecases.DeleteAllPokemonsInDbUseCase
-import com.gonz.mx.repo.pattern.view.main.MainActivity
 import com.gonz.mx.repo.pattern.view.main.MainContract
 import com.gonz.mx.repo.pattern.view.main.MainPresenter
-import dagger.Module
-import dagger.Provides
+import org.koin.core.module.Module
+import org.koin.dsl.module
 
-@Module
-class MainModule {
+val mainModule: Module = module {
 
-    @Provides
-    fun getView(main: MainActivity) : MainContract.View = main
-
-    @Provides
-    fun getPresenter(view: MainContract.View, usecase: DeleteAllPokemonsInDbUseCase) : MainContract.Presenter = MainPresenter(view, usecase)
+    factory<MainContract.Presenter> { (view: MainContract.View) ->
+        MainPresenter(view, get())
+    }
 
 }
