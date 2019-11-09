@@ -16,6 +16,10 @@ import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 
+/**
+ * This module holds the entities that will be used along
+ * all the application, that's why there are singletons.
+ */
 val koinAppModule: Module = module {
     // Pokemon client
     single {
@@ -40,7 +44,7 @@ val koinAppModule: Module = module {
         NetworkHandler(get())
     }
 
-    // Gateways
+    // Gateways (Repos)
     single<PokemonGateway> {
         PokemonRepository(get(), get(), get())
     }

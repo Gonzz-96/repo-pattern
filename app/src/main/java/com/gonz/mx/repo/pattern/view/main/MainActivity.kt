@@ -1,28 +1,23 @@
 package com.gonz.mx.repo.pattern.view.main
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.gonz.mx.repo.pattern.R
 import com.gonz.mx.repo.pattern.view.range.pokemon.RangeOfPokemonsActivity
 import com.gonz.mx.repo.pattern.view.show.db.ShowDBActivity
 import com.gonz.mx.repo.pattern.view.single.pokemon.SinglePokemonActivity
 import dagger.android.AndroidInjection
-import dagger.android.AndroidInjector
-import dagger.android.DispatchingAndroidInjector
-import dagger.android.HasAndroidInjector
 import kotlinx.android.synthetic.main.activity_main.*
 import org.koin.android.ext.android.inject
 import org.koin.core.parameter.parametersOf
-import javax.inject.Inject
 
-class MainActivity : AppCompatActivity(), View.OnClickListener, HasAndroidInjector, MainContract.View {
+class MainActivity : AppCompatActivity(), View.OnClickListener, MainContract.View {
 
-    @Inject lateinit var dispatch: DispatchingAndroidInjector<Any>
 
-    var presenter: MainContract.Presenter by inject { parametersOf(this) }
+    val presenter: MainContract.Presenter by inject { parametersOf(this) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         AndroidInjection.inject(this)
@@ -40,7 +35,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, HasAndroidInject
     }
 
     override fun onClick(v: View?) {
-        when(v?.id) {
+        when (v?.id) {
             R.id.singlePokemon -> getSinglePokemon()
             R.id.showDb -> showPokemonsFromDB()
             R.id.clearDb -> clearDbActivity()
@@ -68,5 +63,4 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, HasAndroidInject
         startActivity(Intent(this, RangeOfPokemonsActivity::class.java))
     }
 
-    override fun androidInjector(): AndroidInjector<Any> = dispatch
 }
