@@ -11,13 +11,14 @@ import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.HasAndroidInjector
 import kotlinx.android.synthetic.main.activity_single_pokemon.*
+import org.koin.android.ext.android.inject
+import org.koin.core.parameter.parametersOf
 import javax.inject.Inject
 
-class SinglePokemonActivity : AppCompatActivity(), SinglePokemonContract.View, HasAndroidInjector {
+class SinglePokemonActivity : AppCompatActivity(), SinglePokemonContract.View {
 
-    @Inject lateinit var dispatch: DispatchingAndroidInjector<Any>
-    @Inject lateinit var presenter: SinglePokemonContract.Presenter
-    var pokemonId: Int = 1
+    val presenter: SinglePokemonContract.Presenter by inject { parametersOf(this) }
+    private var pokemonId: Int = 1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,6 +34,4 @@ class SinglePokemonActivity : AppCompatActivity(), SinglePokemonContract.View, H
     override fun showPokemon(pokemon: Pokemon) {
         pokemonName.text = pokemon.name
     }
-
-    override fun androidInjector(): AndroidInjector<Any> = dispatch
 }
