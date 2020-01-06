@@ -21,6 +21,7 @@ class PokemonRepository(
 
     private val cachedPokemons: MutableList<Pokemon> = mutableListOf()
 
+    // TODO Consider Single from RxJava
     override fun getSinglePokemon(id: Int) : Observable<Pokemon> =
         Observable.create { s ->
             val cachedPokemon = pokemonWithIdIsCached(id)
