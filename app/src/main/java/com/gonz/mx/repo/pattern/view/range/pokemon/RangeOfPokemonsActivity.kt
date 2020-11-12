@@ -9,6 +9,8 @@ import com.gonz.mx.repo.pattern.domain.entities.Pokemon
 import kotlinx.android.synthetic.main.activity_range_of_pokemons.*
 import org.koin.android.ext.android.inject
 import org.koin.core.parameter.parametersOf
+import retrofit2.http.Body
+import retrofit2.http.POST
 
 class RangeOfPokemonsActivity : AppCompatActivity(), RangeOfPokemonsContract.View {
 

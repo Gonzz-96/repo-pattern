@@ -71,6 +71,8 @@ dependencies {
 
     implementation 'com.google.code.gson:gson:2.8.6'
 
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0"
+
     // Testing
     testImplementation Dependencies.Testing.Junit4
     testImplementation Dependencies.Testing.RoboElectric

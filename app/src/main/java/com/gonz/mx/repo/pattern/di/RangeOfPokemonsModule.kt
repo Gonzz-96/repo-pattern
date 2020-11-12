@@ -7,7 +7,7 @@ import org.koin.dsl.module
 
 val rangeOfPokemonsModule: Module = module {
 
-    factory<RangeOfPokemonsContract.Presenter> { (v: RangeOfPokemonsContract.View) ->
+    single<RangeOfPokemonsContract.Presenter> { (v: RangeOfPokemonsContract.View) ->
         RangeOfPokemonPresenter(v, get())
     }
 
